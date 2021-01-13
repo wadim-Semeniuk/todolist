@@ -3,7 +3,7 @@
     <div class="todo-item-content" v-for="(todo, index) in todos" :key="todo.id">
       <div class="todo-item-index">{{ index  + 1}}.</div>
       <span  contenteditable="true" class="todo-item-title">{{ todo.title }} </span>
-      <button class="btn-done" @click="todo.isDone = !todo.isDone, addDoneTodo(), deleteEvent(index), tryTodo()">✔</button>
+      <button class="btn-done" @click="todo.isDone = !todo.isDone, addDoneTodo(), deleteFromObjTodos(index), tryTodo()">✔</button>
       <button class="btn-delete" @click="deleteEvent(index, todo.title)">+</button>
       <TodoDone class="none" :isDoneTodos="doneTodos" />
     </div>
@@ -46,9 +46,11 @@ export default {
       }else {
         return;
       }
-
     },
-
+    deleteFromObjTodos(index) {
+      this.todos.splice(index, 1);
+      localStorage.setItem('todos', JSON.stringify(this.todos));
+    },
     addDoneTodo() {
             console.log(this.theme);
       this.todos.forEach((item) => {
