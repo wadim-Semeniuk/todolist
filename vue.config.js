@@ -1,3 +1,3 @@
 module.exports = {
-  publicPath: '/mynewtodolist/'
+  publicPath: '/todolist/'
 }
