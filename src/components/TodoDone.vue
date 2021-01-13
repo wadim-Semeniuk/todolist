@@ -2,12 +2,12 @@
   <div class="todo-item todo-done">
     <h1 class="todo-done-title">Tasks Done</h1>
     <span :class="hiddenOdjDone" class="have-no-task">You have no completed tasks.</span>
-        <div class="todo-item-content" v-for="(todo, index) in isDoneTodos" :key="todo.id">
-            <div class="todo-item-index">{{ index  + 1}}.</div>
-            <span class="todo-item-title">{{ todo.item.title }} </span>
-            <button class="btn-done btn-todo-done" @click="todo.isDone = !todo.isDone, goBackTodo(), deleteEvent(index)">⮌</button>
-            <button class="btn-delete" @click="deleteEvent(index)">+</button>
-        </div>
+    <div class="todo-item-content" v-for="(todo, index) in isDoneTodos" :key="todo.id">
+      <div class="todo-item-index">{{ index  + 1}}.</div>
+      <span class="todo-item-title">{{ todo.item.title }} </span>
+      <button class="btn-done btn-todo-done" @click="todo.isDone = !todo.isDone, goBackTodo(), deleteEvent(index)">⮌</button>
+      <button class="btn-delete" @click="deleteEvent(index)">+</button>
+    </div>
         <div class="container-progress">
 
           <div class="progress-bar" :class="hiddenOdjDoneReverse">
